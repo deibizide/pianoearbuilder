@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
+ul li {
+    position: relative;
+    float: left;
+    border-radius: 1px;
+}
+
+.piano {
+    margin: 40px auto;
+    cursor: pointer;
+    list-style-type: none;
+}
+
+.black {
+    margin: 0 0 0 -10px;
+    width: 20px;
+    height: 125px;
+    background: #000000;
+    z-index: 1;
+}
+
+.black:active {
+    -webkit-box-shadow: inset 7px 10px 67px #e8d23b;
+    -moz-box-shadow: inset 7px 10px 67px 8px #e8d23b;
+    box-shadow: inset 7px 10px 67px 8px #e8d23b;
+}
+
+.white {
+    width: 30px;
+    height: 200px;
+    background: #ffffff;
+    border: 1px solid black;
+}
+
+.white:active {
+    -webkit-box-shadow: inset 7px 10px 67px 8px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 7px 10px 67px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 7px 10px 67px 8px rgba(0, 0, 0, 0.2);
+}
+
+.black + .white {
+    margin-left: -12px;
+}
