@@ -6,26 +6,58 @@
         <title>Piano</title>
     </head>
     <body>
-    <div class="main-piano">
-        <ul class="piano">
-          <li id="c" class="white key"></li>
-          <li id="cSharp" class="black key"></li>
-          <li id="d" class="white key"></li>
-          <li id="dSharp" class="black key"></li>
-          <li id="e" class="white key"></li>
-          <li id="f" class="white key"></li>
-          <li id="fSharp" class="black key"></li>
-          <li id="g" class="white key"></li>
-          <li id="gSharp" class="black key"></li>
-          <li id="a" class="white key"></li>
-          <li id="aSharp" class="black key"></li>
-          <li id="b" class="white key"></li>
-          <li id="cOctave" class="white key"></li>
-        </ul>
+        <!---NAV stars --->
+        <div class="nav-bar">
+          <p>hola</p>
+        </div>
+        <!---NAV ends --->
+
+        <!---MAIN DIV stars --->
+
+        <div class="main-interface">
+
+            <div class="sub-interface">
+
+            </div>
+            <!---PIANO stars --->
+            <div class="main-piano set">
+                <ul class="piano">
+                    <!---OCTAVE LOWER--->
+                    <li id="c_1" class="white"></li>
+                    <li id="cSharp_1" class="black cs"></li>
+                    <li id="d_1" class="white d"></li>
+                    <li id="dSharp_1" class="black ds"></li>
+                    <li id="e_1" class="white"></li>
+                    <li id="f_1" class="white f"></li>
+                    <li id="fSharp_1" class="black fs"></li>
+                    <li id="g_1" class="white g"></li>
+                    <li id="gSharp_1" class="black gs"></li>
+                    <li id="a_1" class="white a"></li>
+                    <li id="aSharp_1" class="black as"></li>
+                    <li id="b_1" class="white"></li>
+                    <!---OCTAVE HIGHER--->
+                    <li id="c" class="white c"></li>
+                    <li id="cSharp" class="black cs"></li>
+                    <li id="d" class="white d"></li>
+                    <li id="dSharp" class="black ds"></li>
+                    <li id="e" class="white"></li>
+                    <li id="f" class="white f"></li>
+                    <li id="fSharp" class="black fs"></li>
+                    <li id="g" class="white g"></li>
+                    <li id="gSharp" class="black gs"></li>
+                    <li id="a" class="white a"></li>
+                    <li id="aSharp" class="black as"></li>
+                    <li id="b" class="white"></li>
+                </ul>
+            </div>
+            <!---PIANO ends --->
+        </div>
+        <!---MAIN DIV stars --->
+
+
 
         <button class="random-note">Play</button>
 
-    </div>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="pianoNotes.js"></script>
         <script src="script.js"></script>

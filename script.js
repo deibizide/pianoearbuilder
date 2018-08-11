@@ -38,6 +38,7 @@ piano.click(function(e) {
     if (notes[e.target.id]) {
         clickedNote = e.target.id;
         audio.play(clickedNote);
+        console.log(clickedNote);
     }
     rightOrWrongNote();
 });
@@ -48,8 +49,6 @@ piano.click(function(e) {
 
 function rightOrWrongNote() {
     if (randomNote === clickedNote) {
-        console.log("good note");
     } else {
-        console.log("keep on trying my friend");
     }
 }
