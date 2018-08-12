@@ -1,4 +1,4 @@
-const button = $(".random-note");
+const button = $(".buttonHolder");
 const piano = $(".piano");
 const notesKeys = [];
 let audio = new Audio();
@@ -48,7 +48,16 @@ piano.click(function(e) {
 /////////////////////
 
 function rightOrWrongNote() {
-    if (randomNote === clickedNote) {
-    } else {
+    switch (clickedNote) {
+        case randomNote:
+            console.log("right note");
     }
 }
+
+// if (randomNote === clickedNote) {
+//     $(".result-win").addClass("show");
+//     $(".result-win").removeClass("hide");
+// } else {
+//     $(".result-lose").addClass("show");
+//     $(".result-lose").removeClass("hide");
+// }

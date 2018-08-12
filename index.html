@@ -3,7 +3,10 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
-        <title>Piano</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+        <title>Ear-Builder</title>
     </head>
     <body>
         <!---NAV stars --->
@@ -12,15 +15,31 @@
         </div>
         <!---NAV ends --->
 
-        <!---MAIN DIV stars --->
+        <!---MESSAGE RIGHT OR WRONG NOTES --->
 
-        <div class="main-interface">
+        <div class="message-container">
+            <div class="lose-or-win">
+                <div class="result-win hide">
+                    <div class="win">
+                        <i class="fas fa-check-circle"></i>
+                        <h1>Well done, keep on going!</h1>
+                    </div>
 
-            <div class="sub-interface">
+                </div>
+            <div class="result-lose hide">
+                <div class="lose">
+                        <i class="fas fa-times-circle"></i>
+                        <h1>Wrong note</h1>
+                    </div>
 
             </div>
-            <!---PIANO stars --->
-            <div class="main-piano set">
+            </div>
+        </div>
+
+        <!---PIANO --->
+
+        <div class="main-page">
+            <div class="piano-container set">
                 <ul class="piano">
                     <!---OCTAVE LOWER--->
                     <li id="c_1" class="white"></li>
@@ -50,13 +69,14 @@
                     <li id="b" class="white"></li>
                 </ul>
             </div>
-            <!---PIANO ends --->
         </div>
-        <!---MAIN DIV stars --->
 
 
+        <div class="buttonHolder">
+            <i class="fas fa-redo"></i>
+        </div>
 
-        <button class="random-note">Play</button>
+        <footer>&#169; 2018 Created by David Ramis &Aring;hfeldt</footer>
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="pianoNotes.js"></script>
