@@ -1,38 +1,3 @@
-// var notes = {
-//     ////////////////////
-//     ///OCTAVE LOWER////
-//     ////////////////////
-//     c_1: "sounds/261-C.mp3",
-//     cSharp_1: "sounds/277-C-sharp.mp3",
-//     d_1: "sounds/293-D.mp3",
-//     dSharp_1: "sounds/311-D-sharp.mp3",
-//     e_1: "sounds/329-E.mp3",
-//     f_1: "sounds/349-F.mp3",
-//     fSharp_1: "sounds/369F-sharp.mp3",
-//     g_1: "sounds/391-G.mp3",
-//     gSharp_1: "sounds/415-G-sharp.mp3",
-//     a_1: "sounds/440-A.mp3",
-//     aSharp_1: "sounds/466-A-sharp.mp3",
-//     b_1: "sounds/495-B.mp3",
-//
-//     ////////////////////
-//     ///OCTAVE HIGHER////
-//     ////////////////////
-//
-//     c: "sounds/523-C.mp3",
-//     cSharp: "sounds/545-C-sharp.mp3",
-//     d: "sounds/587-D.mp3",
-//     dSharp: "sounds/622-D-sharp.mp3",
-//     e: "sounds/659-E.mp3",
-//     f: "sounds/698-F.mp3",
-//     fSharp: "sounds/698-F-sharp.mp3",
-//     g: "sounds/783-G.mp3",
-//     gSharp: "sounds/830-G-sharp.mp3",
-//     a: "sounds/880-A.mp3",
-//     aSharp: "sounds/932-A-sharp.mp3",
-//     b: "sounds/987-B.mp3"
-// };
-
 const notes = [
     ////////////////////
     ///OCTAVE LOWER////
@@ -143,3 +108,37 @@ const notes = [
         audio: "sounds/1046-C.mp3"
     }
 ];
+// var notes = {
+//     ////////////////////
+//     ///OCTAVE LOWER////
+//     ////////////////////
+//     c_1: "sounds/261-C.mp3",
+//     cSharp_1: "sounds/277-C-sharp.mp3",
+//     d_1: "sounds/293-D.mp3",
+//     dSharp_1: "sounds/311-D-sharp.mp3",
+//     e_1: "sounds/329-E.mp3",
+//     f_1: "sounds/349-F.mp3",
+//     fSharp_1: "sounds/369F-sharp.mp3",
+//     g_1: "sounds/391-G.mp3",
+//     gSharp_1: "sounds/415-G-sharp.mp3",
+//     a_1: "sounds/440-A.mp3",
+//     aSharp_1: "sounds/466-A-sharp.mp3",
+//     b_1: "sounds/495-B.mp3",
+//
+//     ////////////////////
+//     ///OCTAVE HIGHER////
+//     ////////////////////
+//
+//     c: "sounds/523-C.mp3",
+//     cSharp: "sounds/545-C-sharp.mp3",
+//     d: "sounds/587-D.mp3",
+//     dSharp: "sounds/622-D-sharp.mp3",
+//     e: "sounds/659-E.mp3",
+//     f: "sounds/698-F.mp3",
+//     fSharp: "sounds/698-F-sharp.mp3",
+//     g: "sounds/783-G.mp3",
+//     gSharp: "sounds/830-G-sharp.mp3",
+//     a: "sounds/880-A.mp3",
+//     aSharp: "sounds/932-A-sharp.mp3",
+//     b: "sounds/987-B.mp3"
+// };
