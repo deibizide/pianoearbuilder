@@ -4,34 +4,26 @@ const repeatButton = $(".repeat-note");
 const notesKeys = [];
 let audio = new Audio();
 let randomNote;
-let clickedNote;
 let noteAudioSrc;
 let indexNote;
+let dataInfoObject;
 
-//////////////////////
-/////PLAY BUTTON/////
-/////////////////////
-for (var noteName in notes) {
-    notesKeys.push(noteName);
-}
+///////////////////////////
+/////RANDOM NOTE BUTTON/////
+///////////////////////////
 randomButton.click(function() {
-    let randomNumber = getRandomNumber(0, notesKeys.length);
-    randomNote = notesKeys[randomNumber];
+    let randomNumber = getRandomNumber(0, notes.length);
+    randomNote = notes[randomNumber];
 
-    for (var key in notes) {
-        if (randomNote === key) {
-            noteAudioSrc = notes[key];
-            audio.src = noteAudioSrc;
-            audio.play(noteAudioSrc);
-        }
-    }
+    audio.src = randomNote.audio;
+    audio.play(randomNote.audio);
+
+    /////REPEAT BUTTON/////
     repeatButton.click(function() {
-        audio.src = noteAudioSrc;
-        audio.play(noteAudioSrc);
+        audio.src = randomNote.audio;
+        audio.play(randomNote.audio);
     });
-    console.log("this is the Arry notes", notesKeys);
-    console.log("this is the random note", randomNote);
-    console.log(notesKeys.indexOf(randomNote));
+    console.log(randomNote.audio);
 });
 
 function getRandomNumber(min, max) {
@@ -41,35 +33,35 @@ function getRandomNumber(min, max) {
 //////////////////////
 ///////PIANO/////////
 /////////////////////
-
 piano.click(function(e) {
+    dataInfoObject = notes.find(function(item) {
+        return item.id === e.target.id;
+    });
     e.stopPropagation(e);
-    audio.src = notes[e.target.id];
-    if (notes[e.target.id]) {
-        clickedNote = e.target.id;
-        audio.play(clickedNote);
+    audio.src = dataInfoObject.audio;
+    if (dataInfoObject.audio) {
+        audio.play(dataInfoObject.audio);
     }
-    // console.log(randomNote.indexOf(clickedNote));
-
-    rightOrWrongNote();
+    console.log(dataInfoObject.audio);
+    rightOrWrongNote(dataInfoObject, randomNote);
 });
 
 //////////////////////
 ///////WINNER////////
 /////////////////////
 
-function rightOrWrongNote() {
-    console.log(randomNote, clickedNote);
-    if (randomNote === clickedNote) {
+function rightOrWrongNote(clickedNote, actualNote) {
+    if (clickedNote.id === actualNote.id) {
         $(".result-win").addClass("show");
         $(".result-win").removeClass("hide");
     } else {
+        var clickedNoteIndex = notes.findIndex(
+            item => item.id == clickedNote.id
+        );
+        var actualNoteIndex = notes.findIndex(item => item.id == actualNote.id);
+        console.log(clickedNoteIndex, actualNoteIndex);
+
         $(".result-lose").addClass("show");
         $(".result-lose").removeClass("hide");
     }
 }
-
-//  a.indeof("s")clickenoted
-// index of right answer index hat they tzype
-//
-// math.abd negative
