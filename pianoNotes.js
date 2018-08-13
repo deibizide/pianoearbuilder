@@ -33,57 +33,113 @@ var notes = {
     b: "sounds/987-B.mp3"
 };
 
-// const notes = {
-//     1: {
+// const notes = [
+//     ////////////////////
+//     ///OCTAVE LOWER////
+//     ////////////////////
+//     {
+//         name: "c_1",
+//         audio: "sounds/261-C.mp3"
+//     },
+//     {
+//         name: "cSharp_1",
+//         audio: "sounds/277-C-sharp.mp3"
+//     },
+//     {
+//         name: "d_1",
+//         audio: "sounds/293-D.mp3"
+//     },
+//     {
+//         name: "dSharp_1",
+//         audio: "sounds/311-D-sharp.mp3"
+//     },
+//     {
+//         name: "e_1",
+//         audio: "sounds/329-E.mp3"
+//     },
+//     {
+//         name: "f_1",
+//         audio: "sounds/349-F.mp3"
+//     },
+//     {
+//         name: "fSharp_1",
+//         audio: "sounds/369F-sharp.mp3"
+//     },
+//     {
+//         name: "g_1",
+//         audio: "sounds/783-G.mp3"
+//     },
+//     {
+//         name: "gSharp_1",
+//         audio: "sounds/415-G-sharp.mp3"
+//     },
+//     {
+//         name: "a_1",
+//         audio: "sounds/440-A.mp3"
+//     },
+//     {
+//         name: "aSharp_1",
+//         audio: "sounds/466-A-sharp.mp3"
+//     },
+//     {
+//         name: "b_1",
+//         audio: "sounds/495-B.mp3"
+//     },
+//
+//     ////////////////////
+//     ///OCTAVE HIGHER////
+//     ////////////////////
+//
+//     {
 //         name: "c",
 //         audio: "sounds/523-C.mp3"
 //     },
-//     2: {
+//     {
 //         name: "cSharp",
 //         audio: "sounds/545-C-sharp.mp3"
 //     },
-//     3: {
+//     {
 //         name: "d",
 //         audio: "sounds/587-D.mp3"
 //     },
-//     4: {
+//     {
 //         name: "dSharp",
 //         audio: "sounds/622-D-sharp.mp3"
 //     },
-//     5: {
+//     {
 //         name: "e",
 //         audio: "sounds/659-E.mp3"
 //     },
-//     6: {
+//     {
 //         name: "f",
 //         audio: "sounds/698-F.mp3"
 //     },
-//     7: {
+//     {
 //         name: "fSharp",
 //         audio: "sounds/698-F-sharp.mp3"
 //     },
-//     8: {
+//     {
 //         name: "g",
 //         audio: "sounds/783-G.mp3"
 //     },
-//     9: {
+//     {
 //         name: "gSharp",
 //         audio: "sounds/830-G-sharp.mp3"
 //     },
-//     10: {
+//     {
 //         name: "a",
 //         audio: "sounds/880-A.mp3"
 //     },
-//     11: {
+//     {
 //         name: "aSharp",
 //         audio: "sounds/932-A-sharp.mp3"
 //     },
-//     12: {
+//     {
 //         name: "b",
 //         audio: "sounds/987-B.mp3"
 //     },
-//     13: {
+//     {
 //         name: "cOctave",
 //         audio: "sounds/1046-C.mp3"
 //     }
-// };
+// ];
