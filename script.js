@@ -6,21 +6,25 @@ let randomNote;
 let dataInfoObject;
 let counter = 0;
 let rightClickedNote = 0;
+let wrongClickednote = 1;
 
 ///////////////////////////
 /////RANDOM NOTE BUTTON/////
 ///////////////////////////
 
-randomNote.on("click.randomClick", randomClick);
-randomButton.click(function() {
+randomButton.on("click.randomClick", randomClick);
+function randomClick() {
     autoRandomNote();
-});
+}
 
-/////REPEAT BUTTON/////
-repeatButton.click(function() {
+///////////////////////////
+/////REPEAT BUTTON////////
+///////////////////////////
+repeatButton.on("click.repeatClick", repeatClick);
+function repeatClick() {
     audio.src = randomNote.audio;
     audio.play(randomNote.audio);
-});
+}
 
 function autoRandomNote() {
     $(".result").html(``);
@@ -61,10 +65,10 @@ function rightOrWrongNote(clickedNote, actualNote) {
     var actualNoteIndex = notes.findIndex(item => item.id == actualNote.id);
     var gap = 2;
     var farGap = 5;
-
+    //////IF USER CLICKS THE RIGHT NOTE THAT HAPPENS////////
     if (actualNoteIndex === clickedNoteIndex) {
         rightClickedNote++;
-        console.log(rightClickedNote);
+        console.log("amount of rights notes: ", rightClickedNote);
         $(".result").html(
             `<div class="win">
                 <i class="fas fa-check-circle"></i>
@@ -74,11 +78,15 @@ function rightOrWrongNote(clickedNote, actualNote) {
         );
         counter = 0;
         $(".piano").off("click.pianoClick");
+        $(".random-note-button").off("click.randomClick");
+        $(".repeat-note").off("click.repeatClick");
         setTimeout(function() {
             $(".piano").on("click.pianoClick", pianoClick);
-
+            $(".random-note-button").on("click.randomClick", randomClick);
+            $(".repeat-note").on("click.repeatClick", repeatClick);
             autoRandomNote();
-        }, 6000);
+        }, 5000);
+        ///////IF USER CLICKS THE WRONG, STILL HAS 2 MORE CHANCES, THIS HAPPENS////////
     } else if (
         actualNoteIndex - farGap > clickedNoteIndex ||
         actualNoteIndex + farGap < clickedNoteIndex
@@ -107,7 +115,10 @@ function rightOrWrongNote(clickedNote, actualNote) {
             </div>`
         );
     }
+    ///////////IF USERS USES THE THIRD CHANCE THAT HAPPENS////////
     if (counter > 2) {
+        console.log("amount of wrong notes: ", wrongClickednote);
+        wrongClickednote++;
         $(".result").html(
             `<div class="lose">
                 <h1> You have reached the limit, new note is coming!</h1>
@@ -116,15 +127,16 @@ function rightOrWrongNote(clickedNote, actualNote) {
         );
         counter = 0;
         $(".piano").off("click.pianoClick");
-        $(".piano").off("click.pianoClick");
-
-        $(".piano").off("click.pianoClick");
+        $(".random-note-button").off("click.randomClick");
+        $(".repeat-note").off("click.repeatClick");
 
         setTimeout(function() {
             $(".piano").on("click.pianoClick", pianoClick);
+            $(".random-note-button").on("click.randomClick", randomClick);
+            $(".repeat-note").on("click.repeatClick", repeatClick);
 
             autoRandomNote();
-        }, 6000);
+        }, 5000);
     }
 }
 
@@ -136,9 +148,9 @@ function rightOrWrongNote(clickedNote, actualNote) {
 //     var timer = duration,
 //         seconds;
 //     setInterval(function() {
-//         seconds = parseInt(timer % 7, 10);
+//         seconds = parseInt(timer % 6, 10);
 //
-//         seconds = seconds < 7 ? seconds : seconds;
+//         seconds = seconds < 6 ? seconds : seconds;
 //
 //         display.textContent = seconds;
 //
