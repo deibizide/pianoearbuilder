@@ -5,10 +5,13 @@ let audio = new Audio();
 let randomNote;
 let dataInfoObject;
 let counter = 0;
+let rightClickedNote = 0;
 
 ///////////////////////////
 /////RANDOM NOTE BUTTON/////
 ///////////////////////////
+
+randomNote.on("click.randomClick", randomClick);
 randomButton.click(function() {
     autoRandomNote();
 });
@@ -34,7 +37,8 @@ function getRandomNumber(min, max) {
 //////////////////////
 ///////PIANO/////////
 /////////////////////
-piano.click(function(e) {
+piano.on("click.pianoClick", pianoClick);
+function pianoClick(e) {
     e.stopPropagation();
     counter++;
     dataInfoObject = notes.find(function(item) {
@@ -44,9 +48,9 @@ piano.click(function(e) {
     if (dataInfoObject.audio) {
         audio.play(dataInfoObject.audio);
     }
-    console.log(counter);
+    // console.log(counter);
     rightOrWrongNote(dataInfoObject, randomNote);
-});
+}
 
 //////////////////////
 ///////WINNER////////
@@ -58,15 +62,21 @@ function rightOrWrongNote(clickedNote, actualNote) {
     var gap = 2;
     var farGap = 5;
 
-    console.log(clickedNoteIndex, actualNoteIndex);
     if (actualNoteIndex === clickedNoteIndex) {
+        rightClickedNote++;
+        console.log(rightClickedNote);
         $(".result").html(
             `<div class="win">
-                <i class="fas fa-check-circle">Well done, keep on going! Get ready for the next note!</i>
+                <i class="fas fa-check-circle"></i>
+                <h1>Well done, keep on going! Get ready for the next note!</h1>
+                <div>Next Note in... <span id="time">6</span> seconds!</div>
             </div>`
         );
         counter = 0;
+        $(".piano").off("click.pianoClick");
         setTimeout(function() {
+            $(".piano").on("click.pianoClick", pianoClick);
+
             autoRandomNote();
         }, 6000);
     } else if (
@@ -75,7 +85,8 @@ function rightOrWrongNote(clickedNote, actualNote) {
     ) {
         $(".result").html(
             `<div class="lose">
-                <i class="fas fa-times-circle">Oh no, that's too far!</i>
+                <i class="fas fa-times-circle"></i>
+                <h1>Oh no, that's too far!</h1>
             </div>`
         );
     } else if (
@@ -84,13 +95,15 @@ function rightOrWrongNote(clickedNote, actualNote) {
     ) {
         $(".result").html(
             `<div class="lose">
-                <i class="fas fa-times-circle">Nice! Almost there...</i>
+                <i class="fas fa-times-circle"></i>
+                <h1>Nice! Almost there...</h1>
             </div>`
         );
     } else {
         $(".result").html(
             `<div class="lose">
-                <i class="fas fa-times-circle">Veeery close!</i>
+                <i class="fas fa-times-circle"></i>
+                <h1>Veeery close!</h1>
             </div>`
         );
     }
@@ -98,7 +111,45 @@ function rightOrWrongNote(clickedNote, actualNote) {
         $(".result").html(
             `<div class="lose">
                 <h1> You have reached the limit, new note is coming!</h1>
+                <div>Next Note in... <span id="time">6</span> seconds!</div>
             </div>`
         );
+        counter = 0;
+        $(".piano").off("click.pianoClick");
+        $(".piano").off("click.pianoClick");
+
+        $(".piano").off("click.pianoClick");
+
+        setTimeout(function() {
+            $(".piano").on("click.pianoClick", pianoClick);
+
+            autoRandomNote();
+        }, 6000);
     }
 }
+
+//////////////////////
+///FINAL-COUNTDOWN/////
+/////////////////////
+
+// function startTimer(duration, display) {
+//     var timer = duration,
+//         seconds;
+//     setInterval(function() {
+//         seconds = parseInt(timer % 7, 10);
+//
+//         seconds = seconds < 7 ? seconds : seconds;
+//
+//         display.textContent = seconds;
+//
+//         if (--timer < 1) {
+//             timer = duration;
+//         }
+//     }, 1000);
+// }
+//
+// window.onload = function() {
+//     var sixSeconds = 2000,
+//         display = document.querySelector("#time");
+//     startTimer(sixSeconds, display);
+// };

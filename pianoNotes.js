@@ -32,7 +32,7 @@ const notes = [
     },
     {
         id: "g_1",
-        audio: "sounds/783-G.mp3"
+        audio: "sounds/391-G.mp3"
     },
     {
         id: "gSharp_1",
