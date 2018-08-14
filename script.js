@@ -1,12 +1,13 @@
 const randomButton = $(".random-note-button");
 const piano = $(".piano");
 const repeatButton = $(".repeat-note");
+const greenProgressBar = $(".progress-bar");
 let audio = new Audio();
 let randomNote;
 let dataInfoObject;
 let counter = 0;
 let rightClickedNote = 0;
-let wrongClickednote = 1;
+let wrongClickednote = 0;
 
 ///////////////////////////
 /////RANDOM NOTE BUTTON/////
@@ -26,8 +27,9 @@ function repeatClick() {
     audio.play(randomNote.audio);
 }
 
+$(".result").html(``);
 function autoRandomNote() {
-    $(".result").html(``);
+    console.log("this is random note: ");
     let randomNumber = getRandomNumber(0, notes.length);
     randomNote = notes[randomNumber];
     audio.src = randomNote.audio;
@@ -68,14 +70,15 @@ function rightOrWrongNote(clickedNote, actualNote) {
     //////IF USER CLICKS THE RIGHT NOTE THAT HAPPENS////////
     if (actualNoteIndex === clickedNoteIndex) {
         rightClickedNote++;
-        console.log("amount of rights notes: ", rightClickedNote);
+        countdownStart();
+        console.log("rightClickedNote ", rightClickedNote);
         $(".result").html(
             `<div class="win">
                 <i class="fas fa-check-circle"></i>
                 <h1>Well done, keep on going! Get ready for the next note!</h1>
-                <div>Next Note in... <span id="time">6</span> seconds!</div>
             </div>`
         );
+        // progressionBar();
         counter = 0;
         $(".piano").off("click.pianoClick");
         $(".random-note-button").off("click.randomClick");
@@ -84,8 +87,7 @@ function rightOrWrongNote(clickedNote, actualNote) {
             $(".piano").on("click.pianoClick", pianoClick);
             $(".random-note-button").on("click.randomClick", randomClick);
             $(".repeat-note").on("click.repeatClick", repeatClick);
-            autoRandomNote();
-        }, 5000);
+        }, 3000);
         ///////IF USER CLICKS THE WRONG, STILL HAS 2 MORE CHANCES, THIS HAPPENS////////
     } else if (
         actualNoteIndex - farGap > clickedNoteIndex ||
@@ -117,14 +119,15 @@ function rightOrWrongNote(clickedNote, actualNote) {
     }
     ///////////IF USERS USES THE THIRD CHANCE THAT HAPPENS////////
     if (counter > 2) {
-        console.log("amount of wrong notes: ", wrongClickednote);
+        console.log("wrongClickednote ", wrongClickednote);
+        countdownStart();
         wrongClickednote++;
         $(".result").html(
             `<div class="lose">
                 <h1> You have reached the limit, new note is coming!</h1>
-                <div>Next Note in... <span id="time">6</span> seconds!</div>
             </div>`
         );
+
         counter = 0;
         $(".piano").off("click.pianoClick");
         $(".random-note-button").off("click.randomClick");
@@ -134,34 +137,40 @@ function rightOrWrongNote(clickedNote, actualNote) {
             $(".piano").on("click.pianoClick", pianoClick);
             $(".random-note-button").on("click.randomClick", randomClick);
             $(".repeat-note").on("click.repeatClick", repeatClick);
-
-            autoRandomNote();
-        }, 5000);
+        }, 3000);
     }
 }
 
 //////////////////////
-///FINAL-COUNTDOWN/////
+///PROGRESSION-BAR////
 /////////////////////
 
-// function startTimer(duration, display) {
-//     var timer = duration,
-//         seconds;
-//     setInterval(function() {
-//         seconds = parseInt(timer % 6, 10);
-//
-//         seconds = seconds < 6 ? seconds : seconds;
-//
-//         display.textContent = seconds;
-//
-//         if (--timer < 1) {
-//             timer = duration;
-//         }
-//     }, 1000);
-// }
-//
-// window.onload = function() {
-//     var sixSeconds = 2000,
-//         display = document.querySelector("#time");
-//     startTimer(sixSeconds, display);
-// };
+function progressionBar() {
+    console.log("progressionBar", rightClickedNote);
+    if (rightClickedNote === 1) {
+        $(".progress-bar").addClass("green");
+    } else {
+        $(".progress-bar").addClass("red");
+    }
+}
+
+//////////////////////
+///////COUNTDOWN/////
+/////////////////////
+
+function startTimer(duration, display) {
+    var seconds = 5;
+    var timer = setInterval(function() {
+        $("#time").html(seconds);
+        if (--seconds < 1) {
+            clearInterval(timer);
+            autoRandomNote();
+            $(".result").html(``);
+        }
+    }, 1000);
+}
+
+function countdownStart() {
+    display = $("#time");
+    startTimer(display);
+}
