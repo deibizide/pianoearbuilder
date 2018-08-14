@@ -6,15 +6,18 @@ let audio = new Audio();
 let randomNote;
 let dataInfoObject;
 let counter = 0;
-let rightClickedNote = 0;
-let wrongClickednote = 0;
+let move = 0;
+let rightMoves = 0;
+let wrongMoves = 0;
 
 ///////////////////////////
 /////RANDOM NOTE BUTTON/////
 ///////////////////////////
 
 randomButton.on("click.randomClick", randomClick);
+
 function randomClick() {
+    $(".result").html("");
     autoRandomNote();
 }
 
@@ -69,9 +72,9 @@ function rightOrWrongNote(clickedNote, actualNote) {
     var farGap = 5;
     //////IF USER CLICKS THE RIGHT NOTE THAT HAPPENS////////
     if (actualNoteIndex === clickedNoteIndex) {
-        rightClickedNote++;
-        countdownStart();
-        console.log("rightClickedNote ", rightClickedNote);
+        rightMoves++;
+        move++;
+        $(`.progress-bar.${move}`).addClass("green");
         $(".result").html(
             `<div class="win">
                 <i class="fas fa-check-circle"></i>
@@ -80,6 +83,7 @@ function rightOrWrongNote(clickedNote, actualNote) {
         );
         // progressionBar();
         counter = 0;
+        countdownStart();
         $(".piano").off("click.pianoClick");
         $(".random-note-button").off("click.randomClick");
         $(".repeat-note").off("click.repeatClick");
@@ -117,11 +121,11 @@ function rightOrWrongNote(clickedNote, actualNote) {
             </div>`
         );
     }
-    ///////////IF USERS USES THE THIRD CHANCE THAT HAPPENS////////
+    ///////////IF USERS USES THE THIRD CHANCE, THIS HAPPENS////////
     if (counter > 2) {
-        console.log("wrongClickednote ", wrongClickednote);
-        countdownStart();
-        wrongClickednote++;
+        wrongMoves++;
+        move++;
+        $(`.progress-bar.${move}`).addClass("red");
         $(".result").html(
             `<div class="lose">
                 <h1> You have reached the limit, new note is coming!</h1>
@@ -129,6 +133,7 @@ function rightOrWrongNote(clickedNote, actualNote) {
         );
 
         counter = 0;
+        countdownStart();
         $(".piano").off("click.pianoClick");
         $(".random-note-button").off("click.randomClick");
         $(".repeat-note").off("click.repeatClick");
@@ -139,20 +144,13 @@ function rightOrWrongNote(clickedNote, actualNote) {
             $(".repeat-note").on("click.repeatClick", repeatClick);
         }, 3000);
     }
+
+    console.log({ move });
 }
 
 //////////////////////
 ///PROGRESSION-BAR////
 /////////////////////
-
-function progressionBar() {
-    console.log("progressionBar", rightClickedNote);
-    if (rightClickedNote === 1) {
-        $(".progress-bar").addClass("green");
-    } else {
-        $(".progress-bar").addClass("red");
-    }
-}
 
 //////////////////////
 ///////COUNTDOWN/////
@@ -167,10 +165,37 @@ function startTimer(duration, display) {
             autoRandomNote();
             $(".result").html(``);
         }
-    }, 1000);
+    }, 200);
 }
 
 function countdownStart() {
+    console.log({ rightMoves, wrongMoves });
+    if (move === 10) {
+        console.log("its the 10th move!");
+        $(".result").html("");
+        if (rightMoves > 6) {
+            $(".result").html(
+                `<div class="win">
+                    <h1>Congrats! You scored ${rightMoves * 10}%/${move *
+                    10}%. You're ready for the next challenge!</h1>
+                </div>`
+            );
+        } else {
+            $(".result").html(
+                `<div class="lose">
+                    <h1>Keep practicing. You scored ${rightMoves} right and ${wrongMoves} wrong.</h1>
+                </div>`
+            );
+        }
+        $(".progress-bar").removeClass("red");
+        $(".progress-bar").removeClass("green");
+        move = 0;
+        rightMoves = 0;
+        wrongMoves = 0;
+
+        return;
+    }
+
     display = $("#time");
     startTimer(display);
 }
