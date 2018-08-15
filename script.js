@@ -157,7 +157,7 @@ function rightOrWrongNote(clickedNote, actualNote) {
 /////////////////////
 
 function startTimer(duration, display) {
-    var seconds = 5;
+    var seconds = 3;
     var timer = setInterval(function() {
         $("#time").html(seconds);
         if (--seconds < 1) {
@@ -165,7 +165,7 @@ function startTimer(duration, display) {
             autoRandomNote();
             $(".result").html(``);
         }
-    }, 200);
+    }, 1000);
 }
 
 function countdownStart() {
