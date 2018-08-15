@@ -19,6 +19,8 @@ randomButton.on("click.randomClick", randomClick);
 function randomClick() {
     $(".result").html("");
     $(".random-note-button").hide();
+    $(".progress-bar").removeClass("red");
+    $(".progress-bar").removeClass("green");
     autoRandomNote();
 }
 
@@ -79,7 +81,9 @@ function rightOrWrongNote(clickedNote, actualNote) {
         $(".result").html(
             `<div class="win">
                 <i class="fas fa-check-circle"></i>
-                <h1>Well done, keep on going! Get ready for the next note!</h1>
+                <br>
+                <h1>Well done, keep on going!</h1>
+                <h2>Get ready for the next note!</h2>
             </div>`
         );
         // progressionBar();
@@ -101,6 +105,7 @@ function rightOrWrongNote(clickedNote, actualNote) {
         $(".result").html(
             `<div class="lose">
                 <i class="fas fa-times-circle"></i>
+                <br>
                 <h1>Oh no, that's too far!</h1>
             </div>`
         );
@@ -111,6 +116,7 @@ function rightOrWrongNote(clickedNote, actualNote) {
         $(".result").html(
             `<div class="lose">
                 <i class="fas fa-times-circle"></i>
+                <br>
                 <h1>Nice! Almost there...</h1>
             </div>`
         );
@@ -118,6 +124,7 @@ function rightOrWrongNote(clickedNote, actualNote) {
         $(".result").html(
             `<div class="lose">
                 <i class="fas fa-times-circle"></i>
+                <br>
                 <h1>Veeery close!</h1>
             </div>`
         );
@@ -129,7 +136,8 @@ function rightOrWrongNote(clickedNote, actualNote) {
         $(`.progress-bar.${move}`).addClass("red");
         $(".result").html(
             `<div class="lose">
-                <h1> You have reached the limit, new note is coming!</h1>
+                <h1>You have reached the limit.</h1>
+                <h2>New note is coming!</h2>
             </div>`
         );
 
@@ -178,19 +186,20 @@ function countdownStart() {
             $(".result").html(
                 `<div class="win">
                     <h1>Congrats! You scored ${rightMoves * 10}%/${move *
-                    10}%. You're ready for the next challenge!</h1>
+                    10}%.</h1> 
+                    <h2>You're ready for the next challenge!</h2>
                 </div>`
             );
         } else {
             $(".result").html(
                 `<div class="lose">
-                    <h1>Keep practicing. You scored ${rightMoves} right and ${wrongMoves} wrong.</h1>
+                    <h1>Keep practicing.</h1>
+                    <h2> You scored ${rightMoves} right and ${wrongMoves} wrong.</h2>
                 </div>`
             );
         }
         $(".random-note-button").show();
-        $(".progress-bar").removeClass("red");
-        $(".progress-bar").removeClass("green");
+
         move = 0;
         rightMoves = 0;
         wrongMoves = 0;
