@@ -5,29 +5,41 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:100" rel="stylesheet">
+
 
         <title>Single Note Exercice</title>
     </head>
     <body>
         <!---NAV stars --->
 
-            <nav>
-                <div class="nav-bar">
-                    <a class="nav-a">About</a>
-                    <a class="nav-a">Exercices</a>
-                    <a class="nav-a">Instructions</a>
-                </div>
-            </nav>
+        <div class="nav-main">
+            <div class="nav-left">
+                <a id="a-logo" href="welcome.html">
+                <h1> <span>EAR-</span>BUILDER</h1>
+                </a>
+            </div>
+            <div class="nav-right">
+                <a href="exercice-menu.html"class="nav-a">Exercices</a>
+                <a href="instructions.html"class="nav-a">Instructions</a>
+                <a href="about.html"class="nav-a">About</a>
+            </div>
+        </div>
         <!---NAV ends --->
 
         <!---MESSAGE RIGHT OR WRONG NOTES --->
 
         <div class="message-container">
             <div class="lose-or-win">
+                <div class="buttonHolder">
+                    <div class="random-note-button">
+                        <button id="startButton">START</button>
+                    </div>
+                </div>
                 <div class="result"></div>
                 <div class="countdown"></div>
 
-            </div>
+        </div>
         </div>
         <div class="main-progress-bar">
             <div class = "progress-bar 1"></div>
@@ -83,11 +95,7 @@
         <!---BUTTON --->
         <div class="buttons">
 
-            <div class="buttonHolder">
-                <div class="random-note-button">
-                    <i class="fas fa-random"></i>
-                </div>
-            </div>
+
             <div class="repeat-button">
                 <div class="repeat-note">
                     <i class="fas fa-redo"></i>

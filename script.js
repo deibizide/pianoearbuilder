@@ -18,6 +18,7 @@ randomButton.on("click.randomClick", randomClick);
 
 function randomClick() {
     $(".result").html("");
+    $(".random-note-button").hide();
     autoRandomNote();
 }
 

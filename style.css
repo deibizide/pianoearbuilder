@@ -182,22 +182,22 @@ a {
     color: white;
 }
 
-/* //////// */
-/* MAIN-PAGE */
-/* //////// */
+/* ////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////// */
+/* EXERCICE PAGE*/ /* EXERCICE-PAGE*/ /* EXERCICE-PAGE*/
+/* ///////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////// */
 .main-page {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 200px;
-    border: 2px solid black;
+    height: 170px;
 }
 
 .message-container {
     display: flex;
     justify-content: center;
-    height: 495px;
-    border: 1px solid black;
+    /* height: 392px; */
 }
 
 /* ////////// */
@@ -207,7 +207,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 30px;
     height: 22.5rem;
     width: 680px;
     border: 1px solid black;
@@ -227,9 +227,6 @@ a {
 .show {
     display: block;
 }
-/* .hide {
-    display: none;
-} */
 
 .lose {
     display: flex;
@@ -246,13 +243,12 @@ a {
 /* ////// */
 /* PIANO */
 /* ////// */
-.piano-container {
+/* .piano-container {
     display: flex;
     justify-content: center;
     align-items: flex-end;
     height: 200px;
-    border: 2px solid red;
-}
+} */
 
 ul {
     height: 10em;
@@ -321,8 +317,8 @@ ul li:last-child {
 .main-progress-bar {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    border: 2px solid red;
+    align-items: center;
+    height: 60px;
 }
 
 .progress-bar {
@@ -354,18 +350,37 @@ ul li:last-child {
     background-color: black;
 }
 
-.buttonHolder,
 .repeat-button {
     display: flex;
     justify-content: center;
     font-size: 30px;
 }
 
-.buttonHolder :active {
-    background: grey;
+#startButton {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: #f4b400;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    line-height: 32px;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    color: #fff;
+    width: 200px;
+    height: 60px;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: 400;
+    font-family: "Work Sans", sans-serif;
 }
 
-.buttonHolder,
+#startButton:hover {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.26),
+        0 4px 15px 0 rgba(0, 0, 0, 0.26);
+    background-color: #ffc728;
+}
+
 .repeat-button i {
     border: 1px solid black;
     border-radius: 5px;
