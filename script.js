@@ -188,6 +188,7 @@ function countdownStart() {
                 </div>`
             );
         }
+        $(".random-note-button").show();
         $(".progress-bar").removeClass("red");
         $(".progress-bar").removeClass("green");
         move = 0;
