@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:100|700" rel="stylesheet">
+
+
+        <title>Single Note Exercise</title>
+    </head>
+    <body>
+        <!---NAV stars --->
+
+        <div class="nav-main">
+            <div class="nav-left">
+                <a id="a-logo" href="welcome.html">
+                <h1> <span>EAR-</span>BUILDER</h1>
+                </a>
+            </div>
+            <div class="nav-right">
+                <a href="exercise-menu"class="nav-a">Exercises</a>
+                <a href="instructions"class="nav-a">Instructions</a>
+                <a href="about"class="nav-a">About</a>
+            </div>
+        </div>
+        <!---NAV ends --->
+
+        <!---MESSAGE RIGHT OR WRONG NOTES --->
+
+        <div class="message-container">
+            <div class="lose-or-win">
+                <div class="buttonHolder">
+                    <div class="random-note-button">
+                        <button id="startButton">START</button>
+                    </div>
+                <div class="result"></div>
+                <div class="countdown"></div>
+
+            </div>
+        </div>
+        </div>
+        <div class="main-progress-bar">
+            <div class = "progress-bar 1"></div>
+            <div class = "progress-bar 2"></div>
+            <div class = "progress-bar 3"></div>
+            <div class = "progress-bar 4"></div>
+            <div class = "progress-bar 5"></div>
+            <div class = "progress-bar 6"></div>
+            <div class = "progress-bar 7"></div>
+            <div class = "progress-bar 8"></div>
+            <div class = "progress-bar 9"></div>
+            <div class = "progress-bar 10"></div>
+        </div>
+
+        <!---PIANO --->
+
+        <div class="main-page">
+            <div class="piano-container set">
+                <ul class="piano">
+                    <!---OCTAVE LOWER--->
+                    <li id="c_1" class="white"></li>
+                    <li id="cSharp_1" class="black cs"></li>
+                    <li id="d_1" class="white d"></li>
+                    <li id="dSharp_1" class="black ds"></li>
+                    <li id="e_1" class="white"></li>
+                    <li id="f_1" class="white f"></li>
+                    <li id="fSharp_1" class="black fs"></li>
+                    <li id="g_1" class="white g"></li>
+                    <li id="gSharp_1" class="black gs"></li>
+                    <li id="a_1" class="white a"></li>
+                    <li id="aSharp_1" class="black as"></li>
+                    <li id="b_1" class="white"></li>
+                    <!---OCTAVE HIGHER--->
+                    <li id="c" class="white c"></li>
+                    <li id="cSharp" class="black cs"></li>
+                    <li id="d" class="white d"></li>
+                    <li id="dSharp" class="black ds"></li>
+                    <li id="e" class="white"></li>
+                    <li id="f" class="white f"></li>
+                    <li id="fSharp" class="black fs"></li>
+                    <li id="g" class="white g"></li>
+                    <li id="gSharp" class="black gs"></li>
+                    <li id="a" class="white a"></li>
+                    <li id="aSharp" class="black as"></li>
+                    <li id="b" class="white"></li>
+                    <li id="cOctave" class="white"></li>
+                </ul>
+            </div>
+
+        </div>
+
+
+        <!---BUTTON --->
+        <div class="buttons">
+
+
+            <div class="repeat-button">
+                <div class="repeat-note">
+                    <i class="fas fa-redo"></i>
+                </div>
+            </div>
+
+        </div>
+
+
+        <footer>&#169; 2018 Created by David Ramis &Aring;hfeldt</footer>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="/pianoNotes.js"></script>
+        <script src="/script.js"></script>
+    </body>
+</html>
