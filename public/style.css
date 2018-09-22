@@ -13,7 +13,7 @@ body {
 .main-welcome-page {
     display: flex;
     font-family: "Muli", sans-serif;
-    height: 50.5rem;
+    height: 100vh;
 }
 
 /* //////// */
@@ -97,7 +97,7 @@ body {
     justify-content: center;
     font-family: "Work Sans", sans-serif;
     width: 100%;
-    height: 42rem;
+    height: 100vh;
     border: 1px solid black;
 }
 
@@ -124,9 +124,9 @@ body {
     color: black;
     display: flex;
     justify-content: center;
-    width: 400px;
-    height: 220px;
-    margin: 50px;
+    width: 40%;
+    height: 30vh;
+    margin: 50px 0px 400px 0px;
     padding: 1rem;
     border-radius: 1em;
     font-family: "Work Sans", sans-serif;
@@ -383,6 +383,7 @@ ul li:last-child {
     display: flex;
     align-content: center;
     justify-content: center;
+    margin-bottom: 190px;
 }
 .repeat-random-note-button   {
     background-color: black;
@@ -448,11 +449,9 @@ footer {
     display: flex;
     justify-content: center;
     font-family: "Work Sans", sans-serif;
-
     color: white;
     align-items: center;
     background-color: #3e4140;
-    position: fixed;
     bottom: 0;
     width: 100%;
     height: 50px;
